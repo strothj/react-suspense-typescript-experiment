@@ -3,8 +3,9 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "react": "^16.5.2",
-    "react-dom": "^16.5.2",
+    "react": "file:./vendor/react",
+    "react-cache": "file:./vendor/react-cache",
+    "react-dom": "file:./vendor/react-dom",
     "react-scripts-ts": "4.0.8"
   },
   "scripts": {
