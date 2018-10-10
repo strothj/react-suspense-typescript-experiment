@@ -95,6 +95,10 @@ class App extends React.Component {
     this.setState({
       loadingIndicator: true
     });
+    // We schedule a low priority update so that the state change takes place
+    // during React's commit phase rather than render. If we use normal
+    // setState, then the fallback component will be rendered by Placeholder
+    // before it times out.
     unstable_scheduleCallback(() => {
       this.setState({ loadData: true });
     });
@@ -102,4 +106,6 @@ class App extends React.Component {
 }
 
 // ReactDOM.render(<App />, document.getElementById("root"));
+// No real reason to use this here in this example. unstable_createRoot allows
+// you to defer rendering.
 unstable_createRoot(document.getElementById("root")).render(<App />);
